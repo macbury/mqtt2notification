@@ -1,0 +1,3 @@
+#!/bin/bash
+export USE_PDB=1
+./dist/mqtt2notification.app/Contents/MacOS/mqtt2notification

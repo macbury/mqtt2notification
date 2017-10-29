@@ -1,0 +1,3 @@
+paho-mqtt==1.3.1
+pyobjc==4.0
+keyring==10.4.0
