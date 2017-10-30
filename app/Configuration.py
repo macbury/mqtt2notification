@@ -1,6 +1,10 @@
 from Foundation import (NSObject, NSUserDefaults)
 
 import keyring
+import keyring.backends.kwallet
+import keyring.backends.OS_X
+import keyring.backends.SecretService
+import keyring.backends.Windows
 
 CONF_SERVICE = "mqtt2notification"
 CONF_HOST = 'host'

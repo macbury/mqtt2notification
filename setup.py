@@ -13,7 +13,6 @@ APP_NAME = "mqtt2notification"
 APP = ['mqtt2mac.py']
 DATA_FILES = glob("resources/*.xib") + glob("resources/*.png")
 OPTIONS = { 
-  'packages': PACKAGES,
   'iconfile':'resources/main.icns',
   'plist': {
     'CFBundleName': APP_NAME,
@@ -29,7 +28,6 @@ OPTIONS = {
 
 setup(
     app=APP,
-    install_requires=PACKAGES,
     data_files=DATA_FILES,
     options={'py2app': OPTIONS},
     setup_requires=['py2app'],
