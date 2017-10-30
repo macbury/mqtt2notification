@@ -17,8 +17,8 @@ class NotificationManager(NSObject):
     #notification.setIdentifier_("ID_1")
     notification.setInformativeText_(str(text))
     notification.setSoundName_("NSUserNotificationDefaultSoundName")
-    notification.setHasActionButton_(True)
-    notification.setActionButtonTitle_("View")
+    notification.setHasActionButton_(False)
+    #notification.setActionButtonTitle_("View")
 
     payload = NSDictionary.dictionary()
 
