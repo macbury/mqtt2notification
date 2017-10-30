@@ -37,6 +37,7 @@ class MyAppDelegate(NSObject):
   @objc.python_method
   def show_settings(self):
     self.settingsViewController.showWindow_(self)
+    NSApplication.sharedApplication().activateIgnoringOtherApps_(True)
     logger.info("Showing settings...")
 
   def applicationDidFinishLaunching_(self, notification):

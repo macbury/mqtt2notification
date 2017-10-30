@@ -14,7 +14,7 @@ class NotificationManager(NSObject):
   def show(self, title, text):
     notification = NSUserNotification.alloc().init()
     notification.setTitle_(str(title))
-    notification.setIdentifier_("ID_1")
+    #notification.setIdentifier_("ID_1")
     notification.setInformativeText_(str(text))
     notification.setSoundName_("NSUserNotificationDefaultSoundName")
     notification.setHasActionButton_(True)

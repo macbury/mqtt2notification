@@ -50,16 +50,29 @@ class SettingsViewController(NSWindowController):
     self.topicTextField.setEnabled_(not loading)
     self.passwordTextField.setEnabled_(not loading)
 
-  def windowDidLoad(self):
-    NSWindowController.windowDidLoad(self)
+  @objc.python_method
+  def load_settings(self):
     self.hostTextField.setStringValue_(self.config.get_host() or '')
     self.portTextField.setIntegerValue_(self.config.get_port() or 1883)
     self.usernameTextField.setStringValue_(self.config.get_username() or '')
     self.topicTextField.setStringValue_(self.config.get_topic() or '')
     self.passwordTextField.setStringValue_(self.config.get_password() or '')
+
+  def windowDidLoad(self):
+    NSWindowController.windowDidLoad(self)
+    self.load_settings()
     self._.window.center()
     self.setLoading(False)
     logger.info("Window did load")
+
+  def windowWillClose_(self, notification):
+    logger.info("Window will close")
+    if self.mqtt is not None:
+      self.mqtt.stop()
+      self.mqtt = None
+    self.setLoading(False)
+    self.load_settings()
+
 
   def awakeFromNib(self):
     logger.info("Awake from nib")

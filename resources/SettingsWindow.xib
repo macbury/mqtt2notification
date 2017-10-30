@@ -154,6 +154,9 @@ Gw
                     </button>
                 </subviews>
             </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="yRW-d5-J89"/>
+            </connections>
             <point key="canvasLocation" x="81.5" y="135"/>
         </window>
     </objects>

@@ -5,14 +5,15 @@ Usage:
     python setup.py py2app
 """
 
-from setuptools import setup
+from setuptools import setup, find_packages
 from glob import glob
 
+PACKAGES = ['pyobjc', 'paho-mqtt', 'keyring']
 APP_NAME = "mqtt2notification"
 APP = ['mqtt2mac.py']
 DATA_FILES = glob("resources/*.xib") + glob("resources/*.png")
 OPTIONS = { 
-  'packages': ['pyobjc', 'paho-mqtt', 'keyring'],
+  'packages': PACKAGES,
   'iconfile':'resources/main.icns',
   'plist': {
     'CFBundleName': APP_NAME,
@@ -28,6 +29,7 @@ OPTIONS = {
 
 setup(
     app=APP,
+    install_requires=PACKAGES,
     data_files=DATA_FILES,
     options={'py2app': OPTIONS},
     setup_requires=['py2app'],
