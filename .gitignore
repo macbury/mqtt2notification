@@ -8,3 +8,5 @@ temp/**/*
 build/**/*
 dist/**/*
 .eggs/
+
+home-assistant/test/**/*
