@@ -1,3 +1,9 @@
+mqtt:
+  image: toke/mosquitto:release-1.4.10-2
+  ports: 
+    - "1883:1883"
+    - "9001:9001"
+
 homeassistant:
   image: homeassistant/home-assistant:0.55.2
   ports:
@@ -5,9 +11,5 @@ homeassistant:
   volumes:
     - .:/config
     - ../custom_components:/config/custom_components/
-
-mqtt:
-  image: eclipse-mosquitto:1.4.12
-  ports: 
-    - "1883:1883"
-    - "9001:9001"
+  links:
+    - mqtt:mqtt

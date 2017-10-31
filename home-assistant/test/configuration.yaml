@@ -25,5 +25,20 @@ http:
   base_url: 0.0.0.0:8123
 
 mqtt:
-  broker: mqtt
+  broker: 172.17.0.2
   port: 1883
+
+notify:
+  - name: mqtt2notification
+    platform: mqtt2notification
+    topic: living_room/notifications
+
+automation:
+  - alias: inform_about_boot
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      service: notify.mqtt2notification
+      data:
+        message: 'Home assistant finished booting'
