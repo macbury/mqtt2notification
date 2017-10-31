@@ -10,6 +10,19 @@ Publish valid json to mqtt topic:
 { "title": "Title of notification", "message": "Content of message" }
 ```
 
+# Integrating with HomeAssistant
+Ensure that you have https://home-assistant.io/components/mqtt/ configured!
+Copy `home-assistant/custom_components/notify/mqtt2notification.py` to your `<config-dir>/custom_components/notify/` directory and add **mqtt2notification** platform in `<config>/configuration.yaml` file:
+
+``` yaml
+mqtt:
+
+notify:
+  - name: mqtt2notification
+    platform: mqtt2notification
+    topic: living_room/notifications
+```
+
 # Build
 ```shell
 pip install -r requirements.txt
