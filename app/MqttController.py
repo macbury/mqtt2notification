@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
-
+import ssl
 import logging
+
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
@@ -14,6 +15,7 @@ class MqttController:
     self.client.on_message = self.on_message
     self.client.on_disconnect = self.on_disconnect
     self.client.enable_logger(logger)
+    self.client.tls_set_context(ssl.create_default_context(ssl.Purpose.CLIENT_AUTH))
 
     if self.config.get_username() is not None:
       logger.info("Configuring authentication login")

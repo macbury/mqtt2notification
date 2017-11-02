@@ -20,7 +20,7 @@ OPTIONS = {
     'CFBundleDisplayName': APP_NAME,
     'CFBundleGetInfoString': "Display notifications using mqtt",
     'CFBundleIdentifier': "com.macbury.mqtt2notification",
-    'CFBundleVersion': "0.1.0",
+    'CFBundleVersion': "0.2.0",
     'NSUserNotificationAlertStyle': "alert",
     'NSPrincipalClass': 'NSApplication'
   }
